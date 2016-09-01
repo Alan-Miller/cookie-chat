@@ -1,3 +1,6 @@
+@import 'https://fonts.googleapis.com/css?family=Questrial';
+font-size: 4.4em;
+
 html {
   height: 100%;
   width: 100%;
@@ -7,7 +10,12 @@ body {
   height: 95%;
   width: 100%;
   font-family: sans-serif;
-  background-image: url('http://addyosmani.com/blog/wp-content/uploads/2013/04/unicorn.jpg');
+}
+
+h1 {
+  color: RGBA(82, 175, 131, 1);
+  font-size: 4.4em;
+  font-family: 'Questrial', cursive;
 }
 
 .main-container {
@@ -27,8 +35,61 @@ body {
   width: 40%;
 }
 
-p{
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*background-color: gray;*/
+  background-image: url('images/colors-tall.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+
+  margin: 30px;
+  border-radius: 20px;
+}
+p {
   text-align: center;
   margin: 3px 0;
   font-size: 17px;
+  background-color: RGBA(82, 175, 131, .6);
+  padding: 30px 20px;
+  margin: 20px;
+  min-width: 34%;
+  max-width: 320px;
+  border-radius: 14px;
+  border: 6px solid RGBA(184, 212, 235, 1.00);
+  position: relative;
+  display: inline-block;
+  left: -20%;
+  float:left;
+  color: darkblue;
+}
+p:after {
+	 content:"";
+   position: absolute;
+   right: 100%;
+   top: 60%;
+   /*border-top: 13px solid red;*/
+   border-right: 26px solid RGBA(184, 212, 235, 1.00);
+   border-bottom: 19px solid transparent;
+   /*border-left: 13px solid blue;*/
+   border-radius: 0px;
+}
+
+
+.me {
+  background-color: RGBA(253, 122, 32, .8);
+  color: #4C2222;
+  left: 20%;
+  border: 6px solid RGBA(254, 69, 39, 1);
+}
+.me:after {
+  content:"";
+  position: absolute;
+  left: 100%;
+  top: 60%;
+  border-left: 26px solid RGBA(254, 69, 39, 1);
+  border-right: 26px solid transparent;
+  border-bottom: 19px solid transparent;
+  border-radius: 0px;
 }

@@ -5,20 +5,31 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
+
   <body ng-controller="mainCtrl">
     <div class="main-container">
       <h1> DevMountain Chat Room </h1>
-      <form ng-submit="postMessage(message)">
-        <input class="form-control text-box" type="text" ng-model="message" placeholder="Message">
+      <form ng-submit="postMessage(messageBox)">
+        <input class="form-control text-box" type="text" ng-model="messageBox" placeholder="Type a message">
+        <!-- The above ng-model is used both for the input filter and the argument passed into postMessage() (so the input box filters AND posts messages) -->
       </form>
       <div class="messages-container">
-        <p ng-repeat="message in messages"> {{message.message}} </p>
+        <!-- <p>Yay for this!  Delectable Oreo</p>
+        <p>And this!  Delectable Oreo</p> -->
+        <p ng-class="{'me': message.cookie === 'Luscious Fortune Cookie'}" ng-repeat="message in messages | filter: messageBox track by $index" ng-model="$index"> <strong>{{message.message}}</strong> <br> <em>{{message.cookie}}</em></p>
+
+        <!-- The first variable above is from our ng-repeat (for in loop-style) lingo -->
+        <!-- The second variable above is a property of the  -->
       </div>
     </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.2.19.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/mainCtrl.js"></script>
     <script src="js/messageService.js"></script>
+    <script type="text/javascript" src="http://localhost:54435/livereload.js"></script>
   </body>
 </html>
